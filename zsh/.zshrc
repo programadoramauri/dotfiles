@@ -93,3 +93,14 @@ setopt AUTO_CD
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# RubyGems
+PATH="/home/jimmy/.local/share/gem/ruby/3.4.0/bin${PATH:+:${PATH}}"; export PATH;
+
+# Perl
+PATH="/home/jimmy/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/jimmy/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/jimmy/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/jimmy/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/jimmy/perl5"; export PERL_MM_OPT;
+
