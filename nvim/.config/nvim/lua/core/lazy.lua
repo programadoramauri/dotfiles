@@ -1,4 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local plugins = {}
+local plugin_files = vim.fn.globpath(vim.fn.stdpath("config") .. "/lua/plugins", "*.lua", false, true)
 
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -12,51 +14,19 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = {
-          "lua",
-          "php",
-          "javascript",
-          "typescript",
-          "html",
-          "css",
-          "json",
-          "bash",
-          "markdown"
-        },
-        highlight = {enable = true},
-        indent = {enable = true},
-        auto_install = true,
-      })
+for _, file in ipairs(plugin_files) do
+  local module_name = file:match("lua[/\\]plugins[/\\](.+)%.lua$")
+  if module_name then
+    local ok, plugin_table = pcall(require, "plugins." .. module_name)
+    if ok and type(plugin_table) == "table" then
+      for _, plugin in ipairs(plugin_table) do
+        table.insert(plugins, plugin)
+      end
+    else
+      vim.notify("Erro ao carregar plugin module: " .. module_name, vim.log.levels.ERROR)
     end
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = {"nvim-tree/nvim-web-devicons"},
-    opts = {
-      options = {
-        theme = "auto",
-        section_separators = "",
-        component_separators = "",
-      }
-    }
-  },
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    config = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-      require("which-key").setup()
-    end,
-  },
-  {
-    "windwp/nvim-autopairs",
-    opts = {}
-  },
-})
+  end
+end
+
+require("lazy").setup(plugins)
+
