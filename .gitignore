@@ -2,3 +2,4 @@
 *.swp
 *.bak
 *.tmp
+nvim/.config/nvim/lazy-lock.json
