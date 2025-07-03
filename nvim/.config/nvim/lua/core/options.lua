@@ -40,3 +40,5 @@ opt.clipboard = "unnamedplus"
 
 -- Wrap
 opt.wrap = false
+
+opt.scrolloff = 10

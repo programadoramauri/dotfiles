@@ -1,5 +1,6 @@
 *~
 *.swp
+*.bkp
 *.bak
 *.tmp
 nvim/.config/nvim/lazy-lock.json
