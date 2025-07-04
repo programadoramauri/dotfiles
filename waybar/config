@@ -1,0 +1,92 @@
+{
+  "layer": "top",
+    "position": "top",
+    "height": 30,
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["custom/media"],
+    "modules-right": ["power-profiles-daemon", "backlight", "pulseaudio", "temperature", "memory", "cpu", "network", "battery", "clock"],
+
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "1": "🕹️ DEV", "2": "🌐 BROWSER", "3": "🎵 MUSIC", "4": "📁 FILES", "5": "🎮 GAMES"
+      },
+      "persistent-workspaces": {
+        "1": "DEV", "2": "WEB", "3": "MUSIC", "4": "FILES", "5": "GAMES"
+      }
+    },
+
+    "hyprland/window": {
+      "format": "{}",
+      "max-length": 60
+    },
+    "cpu": {
+      "format": "{usage}% "
+    },
+    "backlight": {
+      "format": "{percent}% {icon}",
+      "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "format-icons": {
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "temperature": {
+      "format": "{temperatureC}°C {icon}",
+      "format-icons": ["", "", ""]
+    },
+    "memory": {
+      "format": "{}% "
+    },
+
+    "pulseaudio": {
+      "format": "{volume}% {icon}",
+      "format-muted": "🔇",
+      "format-icons": ["", "", ""],
+      "on-click": "pavucontrol"
+    },
+
+    "network": {
+      "format-wifi": "{essid} ({signalStrength}%) ",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "format-disconnected": "⚠ Disconnected"
+    },
+
+    "battery": {
+      "format": "{capacity}% {icon}",
+      "format-charging": "⚡ {capacity}%",
+      "format-icons": ["", "", "", "", ""]
+    },
+
+    "clock": {
+      "format": " %H:%M",
+      "tooltip-format": "<big>%A, %d de %B de %Y</big>"
+    },
+
+    "custom/media": {
+      "format": "{icon} {text}",
+      "return-type": "json",
+      "max-length": 40,
+      "format-icons": {
+        "spotify": "",
+        "firefox": "",
+        "chromium": "",
+        "default": "🎜"
+      },
+      "exec": "~/.config/waybar/scripts/playerctl-status.py",
+      "on-click": "playerctl play-pause",
+      "on-click-right": "playerctl next",
+      "on-click-middle": "playerctl previous",
+      "interval": 5
+    },
+
+    "tray": {
+      "spacing": 10
+    }
+}
+
