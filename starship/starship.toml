@@ -1,0 +1,23 @@
+# Prompt com vibe 90s neon
+add_newline = false
+
+[username]
+style_user = "bold purple"
+format = "[$user]($style) in "
+
+[directory]
+style = "cyan"
+truncate_to_repo = false
+
+[git_branch]
+symbol = " "
+style = "yellow"
+
+[git_status]
+style = "red"
+format = "[\$all_status]($style) "
+
+[cmd_duration]
+disabled = false
+style = "blue"
+

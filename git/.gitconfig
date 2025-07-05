@@ -1,0 +1,17 @@
+[user]
+	email = programador.amauri@gmail.com
+	name = Amauri Franco
+[core]
+    editor = nvim
+    excludesfile = ~/.gitignore
+
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+    df = diff
+    lg = log --oneline --graph --all
+
+[push]
+    default = simple
