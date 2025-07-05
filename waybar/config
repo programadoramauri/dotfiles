@@ -4,7 +4,7 @@
     "height": 30,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["custom/media"],
-    "modules-right": ["power-profiles-daemon", "backlight", "pulseaudio", "temperature", "memory", "cpu", "network", "battery", "clock"],
+    "modules-right": ["power-profiles-daemon", "backlight", "pulseaudio", "temperature", "memory", "cpu", "network", "battery", "clock", "tray"],
 
     "hyprland/workspaces": {
       "format": "{icon}",
