@@ -1,5 +1,0 @@
-alias ..="cd .."
-alias la="ls -lha"
-alias gs="git status"
-alias nv="nvim"
-alias update="sudo pacman -Syu"
