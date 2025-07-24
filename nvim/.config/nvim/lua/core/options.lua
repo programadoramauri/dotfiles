@@ -1,44 +1,44 @@
 local opt = vim.opt
 
--- Interface
-opt.number = true
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 opt.relativenumber = true
-opt.cursorline = true
-opt.termguicolors = true
-opt.signcolumn = "yes"
-opt.scrolloff = 8
+opt.number = true
 
--- Identation
-opt.expandtab = true
-opt.shiftwidth = 2
 opt.tabstop = 2
-opt.smartindent = true
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.autoindent = true
+opt.bo.softtabstop = 2
 
--- Search
-opt.ignorecase = true
-opt.smartcase = true
-opt.incsearch = true
-opt.hlsearch = false
-
--- Performance
-opt.lazyredraw = true
-opt.updatetime = 250
-opt.timeoutlen = 300
-
--- Files & Backups
-opt.swapfile = false
-opt.backup = false
-opt.undofile = true
-
--- Split windows
-opt.splitbelow = true
-opt.splitright = true
-
--- Mouse & Clipboard
-opt.mouse = "a"
-opt.clipboard = "unnamedplus"
-
--- Wrap
 opt.wrap = false
 
-opt.scrolloff = 10
+opt.ignorecase = true
+opt.smartcase = true
+
+opt.cursorline = true
+
+opt.termguicolors = true
+opt.background = "dark"
+opt.signcolumn = "yes"
+opt.showmode = false
+vim.diagnostic.config({
+	float = { border = "rounded" },
+})
+
+opt.backspace = "indent,eol,start"
+
+opt.clipboard:append("unnamedplus")
+
+opt.splitright = true
+opt.splitbelow = true
+
+opt.iskeyword:append("-")
+
+opt.mouse = ""
+
+opt.foldlevel = 99
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldenable = false
+opt.laststatus = 3

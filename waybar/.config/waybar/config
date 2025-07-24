@@ -4,7 +4,7 @@
     "height": 30,
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["custom/media"],
-    "modules-right": ["power-profiles-daemon", "backlight", "pulseaudio", "temperature", "memory", "cpu", "network", "battery", "clock", "tray"],
+    "modules-right": ["custom/bluetooth-battery", "power-profiles-daemon", "backlight", "pulseaudio", "temperature", "memory", "cpu", "network", "battery", "clock", "tray"],
 
     "hyprland/workspaces": {
       "format": "{icon}",
@@ -27,6 +27,14 @@
       "format": "{percent}% {icon}",
       "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
+
+    "custom/bluetooth-battery": {
+        "format": "{}  ",
+        "interval": 60,
+        "exec": "~/.config/waybar/scripts/bt-battery.sh",
+        "tooltip": false
+      },
+
     "power-profiles-daemon": {
       "format": "{icon}",
       "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
@@ -64,7 +72,7 @@
     },
 
     "clock": {
-      "format": " %H:%M",
+      "format-alt": " %H:%M",
       "tooltip-format": "<big>%A, %d de %B de %Y</big>"
     },
 

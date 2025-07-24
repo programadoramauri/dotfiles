@@ -1,2 +1,2 @@
---ignore=.git
+--ignore=\.git$
 --ignore=README.md
